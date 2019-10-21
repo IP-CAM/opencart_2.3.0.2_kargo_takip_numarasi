@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Kargo Takip Numarası</name>
+    <code>KargoTakipNo</code>
+    <version>1.0</version>
+    <author>bilgi@ferditarakci.com</author>
+    <link>https://www.ferditarakci.com</link>
+    <file path="admin/controller/customer/custom_field.php">
+        <operation>
+            <search>
+			<![CDATA[
+				$data['text_address'] = $this->language->get('text_address');
+            ]]>
+			</search>
+            <add position="after">
+			<![CDATA[           
+				$data['text_cargo'] = $this->language->get('text_cargo');
+            ]]>
+			</add>
+        </operation>
+    </file> 
+    <file path="admin/language/tr-tr/customer/custom_field.php">
+        <operation>
+            <search>
+			<![CDATA[
+				$_['text_address']         = 'Adres';
+            ]]>
+			</search>
+            <add position="after">
+			<![CDATA[           
+				$_['text_cargo']         = 'Kargo';
+            ]]>
+			</add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/customer/custom_field.php">
+        <operation>
+            <search>
+			<![CDATA[
+				$_['text_address']         = 'Address';
+            ]]>
+			</search>
+            <add position="after">
+			<![CDATA[           
+				$_['text_cargo']         = 'Cargo';
+            ]]>
+			</add>
+        </operation>
+    </file>
+    <file path="admin/view/template/customer/custom_field_form.tpl">
+        <operation>
+            <search>
+			<![CDATA[
+				<?php if ($location == 'address') { ?>
+            ]]>
+			</search>
+            <add position="before">
+			<![CDATA[           
+                <?php if ($location == 'cargo') { ?>
+                <option value="cargo" selected="selected"><?php echo $text_cargo ?></option>
+                <?php } else { ?>
+                <option value="cargo"><?php echo $text_cargo ?></option>
+                <?php } ?>
+            ]]>
+			</add>
+        </operation>
+    </file>
+</modification>
